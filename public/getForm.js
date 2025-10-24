@@ -7,11 +7,13 @@ if(!res.ok) {
     console.error('unable fetch')
 }
 
-
+let id = 0
 messages.forEach(messageObj => {
     container.innerHTML += `
     <table>
-
+    <tr>
+    <td>${id += 1}</td>
+    </tr>
     <tr>
     <td>nama: ${messageObj.name}</td><br>
     </tr>

@@ -2,10 +2,10 @@ import express from 'express'
 import cors from 'cors'
 import Message from './model/Message.js'
 import dbConnect from './db/dbConnection.js'
+import 'dotenv/config'
 
 const app = express()
 app.use(express.json())
-const PORT = 8000
 app.use(cors())
 
 dbConnect()
@@ -30,4 +30,4 @@ app.get('/api/messages', async (req, res) => {
 })
 
 
-app.listen(PORT,() => console.log(`server running on port ${PORT}`))
+app.listen(process.env.PORT,() => console.log(`server running on port ${process.env.PORT}`))
