@@ -1,0 +1,22 @@
+body {
+    padding: 40px;
+    padding-right: 120px;
+}
+
+form {
+    margin-top: 22px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+#container {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    margin-top: 22px;
+    gap: 22px;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 620px;
+}
