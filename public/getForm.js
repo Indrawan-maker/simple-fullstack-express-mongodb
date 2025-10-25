@@ -24,10 +24,29 @@ messages.forEach(messageObj => {
     <td>dibuat saat: ${messageObj.createdAt}</td><br>
     </tr>
     <td>di update saat: ${messageObj.updatedAt}</td><br>
+    <button onclick="handleEdit('${messageObj._id}', '${messageObj.name}', '${messageObj.message}')">Edit</button>
     </table>
     `
 })
 }
 
 handleGetForm()
+
+
+async function handleEdit(id, oldName, oldMessage) {
+    const name = prompt('silahkan masukan nama baru', oldName)
+    const message = prompt('silahkan masukan nama baru', oldMessage)
+    console.log(id)
+    if(!name || !message) return alert('tidak boleh kosong')
+    const res = await fetch(`http://localhost:8000/api/messages/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({name, message})
+    })
+    const result = await res.json()
+    console.log(result)
+    alert('berhasil terubah')
+
+    handleGetForm()
+}
 

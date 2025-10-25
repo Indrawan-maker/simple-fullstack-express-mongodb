@@ -25,8 +25,18 @@ app.post( '/api/register', async (req, res) => {
 
 app.get('/api/messages', async (req, res) => {
     const allMessages = await Message.find().sort({createdAt: -1})
-    console.log(allMessages)
+    console.table(allMessages)
     res.json(allMessages)
+})
+
+app.put('/api/messages/:id', async (req, res) => {
+    const { id } = req.params
+    const updateData = req.body
+    console.log(id)
+    console.log(updateData)
+    const editMessage = await Message.findByIdAndUpdate(id, updateData, {new: true})
+res.status(200).json(editMessage)
+    
 })
 
 
