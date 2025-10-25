@@ -39,5 +39,12 @@ res.status(200).json(editMessage)
     
 })
 
+app.delete('/api/messages/:id', async (req, res) => {
+    const { id } = req.params
+    const deleted = await Message.findByIdAndDelete(id)
+    console.log(deleted)
+    res.json(deleted)
+})
+
 
 app.listen(process.env.PORT,() => console.log(`server running on port ${process.env.PORT}`))

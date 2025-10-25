@@ -25,6 +25,7 @@ messages.forEach(messageObj => {
     </tr>
     <td>di update saat: ${messageObj.updatedAt}</td><br>
     <button onclick="handleEdit('${messageObj._id}', '${messageObj.name}', '${messageObj.message}')">Edit</button>
+    <button onclick="handleDelete('${messageObj._id}')">hapus</button>
     </table>
     `
 })
@@ -46,7 +47,14 @@ async function handleEdit(id, oldName, oldMessage) {
     const result = await res.json()
     console.log(result)
     alert('berhasil terubah')
-
-    handleGetForm()
 }
 
+async function handleDelete(id) {
+    const res = await fetch(`http://localhost:8000/api/messages/${id}`,{
+        method: 'DELETE'
+    }
+)
+const result = await res.json()
+console.log(result)
+alert(`data dengan id ${result._id} dan nama ${result.name}berhasil dihapus`)
+}
