@@ -47,4 +47,4 @@ app.delete('/api/messages/:id', async (req, res) => {
 })
 
 
-app.listen(process.env.PORT,() => console.log(`server running on port ${process.env.PORT}`))
+export default app
