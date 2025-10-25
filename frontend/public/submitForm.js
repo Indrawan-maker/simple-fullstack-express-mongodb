@@ -5,7 +5,7 @@ async function handleForm() {
     let message = document.getElementById('message').value
     console.log(name, message)
 
-    const res = await fetch('http://localhost:8000/api/register', {
+    const res = await fetch('https://simple-fullstack-express-mo-git-43392c-indras-projects-5779be51.vercel.app/api/register', {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({name, message})

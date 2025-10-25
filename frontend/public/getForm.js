@@ -1,7 +1,7 @@
 
 async function handleGetForm() {
     const container = document.getElementById('container')
-const res = await fetch('http://localhost:8000/api/messages')
+const res = await fetch('https://simple-fullstack-express-mo-git-43392c-indras-projects-5779be51.vercel.app/api/messages')
 const messages = await res.json()
 if(!res.ok) {
     console.error('unable fetch')
@@ -39,7 +39,7 @@ async function handleEdit(id, oldName, oldMessage) {
     const message = prompt('silahkan masukan nama baru', oldMessage)
     console.log(id)
     if(!name || !message) return alert('tidak boleh kosong')
-    const res = await fetch(`http://localhost:8000/api/messages/${id}`, {
+    const res = await fetch(`https://simple-fullstack-express-mo-git-43392c-indras-projects-5779be51.vercel.app/api/messages/${id}`, {
         method: 'PUT',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({name, message})
@@ -50,7 +50,7 @@ async function handleEdit(id, oldName, oldMessage) {
 }
 
 async function handleDelete(id) {
-    const res = await fetch(`http://localhost:8000/api/messages/${id}`,{
+    const res = await fetch(`https://simple-fullstack-express-mo-git-43392c-indras-projects-5779be51.vercel.app/api/messages/${id}`,{
         method: 'DELETE'
     }
 )
